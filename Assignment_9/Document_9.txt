@@ -1,0 +1,44 @@
+Automation using AutoHotkey:
+Since the CelerSMS AT Emulator does not support built-in scripting or direct automation, external automation was implemented using AutoHotkey. The AT command sequence was automated using an AutoHotkey script, which simulated keyboard inputs directly into the emulator window.
+Test Sequence Automated:
+1.AT – Basic connectivity check.
+2.ATI – Module information retrieval.
+3.AT+CSQ – Signal quality check.
+4.AT+CPIN? – SIM readiness check.
+5.AT+CMGF=1 – Set SMS mode to text.
+
+
+Automation Flow:
+•The above sequence was automated using an AutoHotkey script, which sent each command with appropriate delays.
+•The script executed the commands one after another automatically inside the CelerSMS AT Emulator.
+•Output responses were successfully received and verified at each step.
+
+
+Tools Used:
+•AutoHotkey (keyboard macro scripting tool)
+•CelerSMS AT Emulator (for command execution)
+
+
+Flow Description:
+1.AutoHotkey script was created to send AT commands as keystrokes.
+2.The script was triggered after opening the AT emulator.
+3.Commands were automatically typed into the emulator and executed sequentially.
+4.Responses were captured and verified, demonstrating successful automation.
+
+AutoHotKey Script
+Sleep, 3000 ; Wait for emulator to be ready
+Send, AT{Enter}
+Sleep, 500
+Send, ATI{Enter}
+Sleep, 500
+Send, ATZ{Enter}
+Sleep, 500
+Send, AT{+}CPIN?{Enter}
+Sleep, 500
+Send, AT{+}CSQ{Enter}
+Sleep, 500
+Send, AT{+}CNMI=?{Enter}
+ 
+ 
+Automation using AutoHotkey streamlined the execution of repetitive AT command sequences inside the CelerSMS AT Emulator. The automated approach reduced manual effort and ensured consistent command entry. This method can be extended for testing real GSM/IoT modules as well.
+

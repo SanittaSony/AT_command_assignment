@@ -1,0 +1,5 @@
+AT+CSQ : shows signal strength( Here, +CSQ: 20,0 , is a simulated value ,where '20' is the signal strength and '0' is the signal quality
+
+AT+CPIN? :Checks if the SIM card is ready.
+
+AT+COPS? : Shows the current network operator.(Here it is not supported)

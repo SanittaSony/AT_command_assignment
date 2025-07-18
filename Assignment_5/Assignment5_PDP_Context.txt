@@ -1,0 +1,35 @@
+
+Assignment 5: PDP Context & Internet Setup 
+- The CelerSMS AT Emulator does not support internet commands like AT+CGDCONT
+
+
+Purpose of PDP Context Setup
+- Required to connect a modem to mobile internet
+- Involves setting APN(Access Point Name) and activating data session
+
+Key AT Commands
+1. Set APN
+AT+CGDCONT=1,"IP","airtelgprs.com"  // Airtel India
+AT+CGDCONT=1,"IP","jionet"          // Jio India
+ -"1": a number (PDP context ID)
+ -"IP": IPv4
+ -"jionet": APN provided by jio
+
+2. Attach to GPRS
+AT+CGATT=1       // Attach to data network
+
+3. Activate PDP Context
+AT+CGACT=1,1     // Start data session
+
+4. Get IP Address
+AT+CGPADDR=1     // Check assigned IP
+
+Setup Flow (Real Modem)
+1. AT+CPIN?         // SIM ready
+2. AT+CSQ           // Signal strength
+3. AT+CREG?         // Registered to network
+4. AT+CGATT=1       // Attach GPRS
+5. AT+CGDCONT=...   // Set APN
+6. AT+CGACT=1,1     // Activate
+7. AT+CGPADDR=1     // Get IP
+

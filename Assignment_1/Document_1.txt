@@ -1,0 +1,3 @@
+AT: check if modem is working
+ATI: Shows modem details like name and version.(C102 is a simulated reply)
+ATZ: Resets the modem to default settings.

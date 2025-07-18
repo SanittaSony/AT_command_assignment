@@ -1,0 +1,43 @@
+Assignment 3: AT Command Variants & Help Documentation
+
+ AT Command Syntax Types:
+•AT+CMD=? — Test Command
+   •Used to get supported values or test if the command is implemented.
+•AT+CMD? — Read Command
+   •Reads the current status or value.
+•AT+CMD=<val> — Set Command
+   •Sets a value or executes the command with parameters.
+
+
+Working Commands (Tested in CelerSMS AT Emulator):
+
+Command	|=? Supported	|? Supported	|=<val> Supported
+============================================================
+AT+CMGF	|Yes		|Yes		|yes (AT+CMGF=1)
+AT+CSQ	|Yes		|No		|No
+AT+COPS	|No		|Yes		|No
+AT+CPIN	|No		|Yes		|No 
+AT+CNMI	|Yes		|Yes		|Yes (AT+CNMI=2,1,0,0,0)
+
+Manual Help Documentation
+•AT+CMGF – SMS Text Mode
+   oSet: AT+CMGF=1 → Sets SMS to text mode
+   oRead: AT+CMGF? → Returns +CMGF: 1
+   oTest: AT+CMGF=? → Returns +CMGF: (0,1)
+   o0: PDU mode
+   o1: Text mode
+•AT+CSQ – Signal Quality Report
+   oRead: AT+CSQ? → Returns +CSQ: 15,99
+   oSet: Not supported
+   oTest: Not supported
+•AT+CPIN – SIM PIN Status
+   oRead: AT+CPIN? → Returns +CPIN: READY
+   oSet: AT+CPIN="1234" → Unlocks SIM if PIN required
+   oTest: Not supported
+•AT+COPS – Operator Selection
+   oRead: AT+COPS? → Returns current operator (e.g., +COPS: 0,0,"Airtel")
+   oSet/Test: Not supported in emulator
+•AT+CNMI – New Message Indication to TE
+   oSet: AT+CNMI=2,1,0,0,0 → Enables new message indication via unsolicited        result code
+   oRead: AT+CNMI? → Returns current configuration (e.g., +CNMI: 2,1,0,0,0)
+   oTest: AT+CNMI=? → Returns allowed value ranges (e.g., +CNMI:  (0-3),(0-3),(0-2),(0-2),(0-1))

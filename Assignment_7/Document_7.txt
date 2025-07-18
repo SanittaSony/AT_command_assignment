@@ -1,0 +1,33 @@
+
+Assignment 7: Error Simulation & Debugging
+
+Enabling Detailed Errors
+AT+CMEE=2
+OK
+- Enables verbose error messages
+- Returns +CME ERROR: <code> instead of generic ERROR
+
+Simulated Errors
+1. Unsupported Command:
+AT+XYZ
++CME ERROR: 4   // Operation not supported
+
+2. Missing Parameter:
+AT+CPIN
++CME ERROR: 10  // SIM not inserted or syntax error
+
+3. Wrong Parameter Type:
+AT+QIOPEN=1,0,"WRONG","host",80,0,1
++CME ERROR: 50  // Incorrect parameters
+
+Common Error Codes
+Code  | Meaning
+------|-------------------------------
+3     | Operation not allowed
+4     | Operation not supported
+10    | SIM not inserted / syntax error
+50    | Incorrect parameters
+100   | Unknown error
+
+
+

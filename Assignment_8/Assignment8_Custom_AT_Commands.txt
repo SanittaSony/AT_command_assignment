@@ -1,0 +1,39 @@
+
+Assignment 8: Custom AT Commands (Cavli Module)
+
+Selected Module – Cavli C10QM
+- LTE Cat 1 module
+- Supports SMS, GNSS, MQTT, HTTP, cloud APIs
+- Suitable for smart cities, mobility tracking, and telemetry
+
+Custom AT Command #1 – Cloud Sync Status
+AT+C10CLOUDSYNC?
+Response:
++C10CLOUDSYNC: STATUS=OK, LAST_SYNC="2025-07-18 08:41:23", SIGNAL=75%
+OK
+
+- Checks connectivity to the IoT platform and last sync timestamp
+
+Custom AT Command #2 – Sensor Data Uplink
+AT+C10PUSH="TEMP:28.4,HUM:65"
+Response:
++C10PUSH: DATA UPLOADED SUCCESSFULLY
+OK
+
+- Simulates a sensor payload being pushed to a cloud server
+
+Custom AT Command #3 – Remote Firmware Check
+AT+C10FWCHK
+Response:
++C10FWCHK: VERSION=1.0.3, UPDATE_AVAILABLE=YES
+OK
+
+- Queries the server for firmware updates remotely
+
+Summary Table
+Command            | Purpose                    | Mock Response
+------------------ | -------------------------- | -----------------------------------------------
+AT+C10CLOUDSYNC?   | Check cloud sync status    | +C10CLOUDSYNC: ..., OK
+AT+C10PUSH="..."   | Send sensor data           | +C10PUSH: DATA UPLOADED SUCCESSFULLY, OK
+AT+C10FWCHK        | Check for firmware updates | +C10FWCHK: VERSION=..., UPDATE_AVAILABLE=..., OK
+

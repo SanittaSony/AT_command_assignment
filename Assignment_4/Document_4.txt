@@ -1,0 +1,7 @@
+AT+CMGF=<value> : value=0 -> PDU mode
+		  value=1 -> Text mode
+
+AT+CMGS="value": value-> phone number
+	Sends an SMS to the given phone number.
+
+AT+CMGR=1 :Reads the SMS stored at location 1 (in the SIM inbox).

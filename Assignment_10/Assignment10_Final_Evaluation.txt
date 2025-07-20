@@ -1,0 +1,29 @@
+
+Assignment 10: Final Evaluation
+
+Scenario Flow:
+1. AT – Check basic modem connectivity
+2. AT+CSQ – Check signal strength
+3. AT+CMGF=1 – Set SMS mode to Text
+4. AT+CMGS="<phone_number>" – Send SMS
+5. AT+CMGR=1 – Read SMS from storage
+
+Command Log Sheet
+Step | Command    | Expected Response    | Actual Response      | Notes
+---- | ---------- | -------------------- | -------------------- | ------------------
+1    | AT         | OK                   | OK                   | Success
+2    | AT+CSQ     | +CSQ: ,              | +CSQ: 21,0           | Success
+3    | AT+CMGF=1  | OK                   | OK                   | SMS Mode Set
+4    | AT+CMGS="" | >                    | Message Sent + OK    | Include Ctrl+Z
+5    | AT+CMGR=1  | +CMGR: "REC READ"... | Error                | Doesn't work as expected
+
+Flow Diagram
+AT → CSQ → CMGF=1 → CMGS="number" → CMGR=1
+- All commands follow a linear logic flow simulating modem SMS lifecycle
+
+Summary:
+- This sequence successfully simulated an end-to-end SMS operation.
+- No major errors were encountered.
+- Ctrl+Z input for AT+CMGS must be timed carefully.
+- Emulator successfully displayed sent and received messages.
+
